@@ -1,0 +1,92 @@
+/* VCH visual brand bible — shared tokens */
+:root {
+  /* palette */
+  --ivory: #EFECE6;
+  --soft-white: #F6F5F2;
+  --ink: #202020;
+  --warm-grey: #6C6964;
+  --stone: #DBD8CF;
+  --pale-blue: #B8D2D8;
+  --muted-teal: #80A7AF;
+  --burnt-orange: #C35421;
+
+  /* type */
+  --display: "Anton", "Oswald", "Impact", sans-serif;
+  --body:    "Chivo", "Inter", system-ui, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+  --hand:    "Caveat", cursive;
+
+  /* scale */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+  --sp-9: 96px; --sp-10: 128px;
+
+  --measure: 60ch;
+}
+
+/* direction A — earned editorial */
+[data-dir="A"] {
+  --ground: #EFECE6;
+  --ground-alt: #F6F5F2;
+  --fg-ink: #202020;
+  --fg-body: #6C6964;
+  --fg-field: #DBD8CF;
+  --fg-accent: #C35421;
+  --display-tracking: 0.02em;
+  --display-leading: 0.92;
+}
+
+/* direction B — light and silence */
+[data-dir="B"] {
+  --ground: #141414;
+  --ground-alt: #202020;
+  --fg-ink: #EFECE6;
+  --fg-body: #B2AFA7;
+  --fg-field: #2A2724;
+  --fg-accent: #C35421;
+  --display-tracking: 0.08em;
+  --display-leading: 0.92;
+}
+
+/* direction C — industrial testimony */
+[data-dir="C"] {
+  --ground: #DBD8CF;
+  --ground-alt: #C8C5BC;
+  --fg-ink: #1A1A1A;
+  --fg-body: #4A4845;
+  --fg-field: #A6A39C;
+  --fg-accent: #C35421;
+  --display-tracking: 0.02em;
+  --display-leading: 0.92;
+}
+
+/* direction D — studio notebook */
+[data-dir="D"] {
+  --ground: #F6F5F2;
+  --ground-alt: #DBD8CF;
+  --fg-ink: #202020;
+  --fg-body: #6C6964;
+  --fg-field: #B8D2D8;
+  --fg-accent: #C35421;
+  --display-tracking: 0.02em;
+  --display-leading: 0.92;
+}
+
+/* direction E — signal over noise */
+[data-dir="E"] {
+  --ground: #EFECE6;
+  --ground-alt: #F6F5F2;
+  --fg-ink: #1A1A1A;
+  --fg-body: #4A4845;
+  --fg-field: #EFECE6;
+  --fg-accent: #202020;
+  --display-tracking: 0.0em;
+  --display-leading: 0.9;
+}
+
+/* paper noise texture for direction D */
+[data-dir="D"] .paper {
+  background-image: radial-gradient(1px 1px at 25% 15%, rgba(0,0,0,0.03) 1px, transparent 1px),
+                    radial-gradient(1px 1px at 60% 70%, rgba(0,0,0,0.03) 1px, transparent 1px),
+                    radial-gradient(1px 1px at 80% 40%, rgba(0,0,0,0.02) 1px, transparent 1px);
+}

@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>System — VCH Visual Brand Bible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo:wght@300;400;500;600&family=Caveat:wght@500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+</head><body>
+<nav class="site-nav">
+  <a class="mark" href="/index.html">Vantage <b>Creative House</b></a>
+  <ul>
+    <li><a class="item " href="/principles.html">Principles</a></li>
+    <li><a class="item active" href="/system.html">System</a></li>
+    <li><a class="item " href="/dir-A.html">A</a></li>
+    <li><a class="item " href="/dir-B.html">B</a></li>
+    <li><a class="item " href="/dir-C.html">C</a></li>
+    <li><a class="item " href="/dir-D.html">D</a></li>
+    <li><a class="item " href="/dir-E.html">E</a></li>
+    <li><a class="item " href="/comparison.html">Compare</a></li>
+    <li><a class="item " href="/decisions.html">Decisions</a></li>
+  </ul>
+</nav>
+<main>
+  <div class="meta">02 / System</div>
+  <h1 class="page-title">The pieces every direction shares</h1>
+  <p class="page-subtitle">Tokens, type, grid, section mark. Lives in the repo as JSON and CSS once the direction is locked.</p>
+
+  <section class="section">
+    <div class="section-head"><h2>Palette.</h2><span class="label">base.json</span></div>
+    <div class="grid" style="grid-template-columns:repeat(8,1fr);gap:var(--sp-3);">
+      
+        <div>
+          <div style="height:120px;background:#EFECE6;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>ivory</b></div>
+          <div class="meta" style="opacity:0.6;">#EFECE6</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#F6F5F2;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>soft-white</b></div>
+          <div class="meta" style="opacity:0.6;">#F6F5F2</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#DBD8CF;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>stone</b></div>
+          <div class="meta" style="opacity:0.6;">#DBD8CF</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#6C6964;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>warm-grey</b></div>
+          <div class="meta" style="opacity:0.6;">#6C6964</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#202020;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>ink</b></div>
+          <div class="meta" style="opacity:0.6;">#202020</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#B8D2D8;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>pale-blue</b></div>
+          <div class="meta" style="opacity:0.6;">#B8D2D8</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#80A7AF;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>muted-teal</b></div>
+          <div class="meta" style="opacity:0.6;">#80A7AF</div>
+        </div>
+      
+        <div>
+          <div style="height:120px;background:#C35421;border:1px solid var(--stone);"></div>
+          <div class="meta" style="margin-top:var(--sp-2);"><b>burnt-orange</b></div>
+          <div class="meta" style="opacity:0.6;">#C35421</div>
+        </div>
+      
+    </div>
+    <div class="b-body" style="margin-top:var(--sp-5);max-width:60ch;">
+      Each direction uses a subset of this palette. One section colour per screen. The accent appears once per piece.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Type.</h2><span class="label">display, body, data, hand</span></div>
+    <div class="grid g-2" style="gap:var(--sp-7);">
+      <div>
+        <div class="meta" style="margin-bottom:var(--sp-3);">Display — Anton, uppercase</div>
+        <div class="h-display" style="font-size:120px;color:var(--ink);">Earned expertise</div>
+        <div class="meta" style="margin-top:var(--sp-3);opacity:0.6;">Trailing period in burnt-orange. Letter-spacing from 0.0em (E) to 0.08em (B).</div>
+      </div>
+      <div>
+        <div class="meta" style="margin-bottom:var(--sp-3);">Body — Chivo</div>
+        <div class="b-lede" style="font-size:20px;color:var(--ink);max-width:40ch;">We spent last month helping a 30-year manufacturing company record their first podcast. Not because podcasts are magic. Because their head of R&amp;D has 25 years of answers that nobody outside the building has ever heard.</div>
+        <div class="meta" style="margin-top:var(--sp-5);margin-bottom:var(--sp-2);">Data — JetBrains Mono</div>
+        <div class="meta" style="font-size:14px;color:var(--ink);"><b>SERIAL 1972 / SHOP 03 / 2026-10-07</b></div>
+        <div class="meta" style="margin-top:var(--sp-5);margin-bottom:var(--sp-2);">Hand — Caveat (marginalia only, direction D)</div>
+        <div style="font-family:var(--hand);font-size:34px;color:var(--ink);">draft 03 — keep the strip</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Section marks.</h2><span class="label">one per direction</span></div>
+    <div class="grid g-5" style="grid-template-columns:repeat(5,1fr);gap:var(--sp-5);">
+      
+        <div data-dir="A" style="padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);">
+          <div style="font-size:40px;line-height:1;"><span class="mark-sq"></span><span style="font-family:var(--display);text-transform:uppercase;letter-spacing:var(--display-tracking);">A</span></div>
+          <div class="meta" style="margin-top:var(--sp-3);color:var(--fg-body);">Earned Editorial</div>
+        </div>
+      
+        <div data-dir="B" style="padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);">
+          <div style="font-size:40px;line-height:1;"><span class="mark-bracket">[&nbsp;&nbsp;]</span><span style="font-family:var(--display);text-transform:uppercase;letter-spacing:var(--display-tracking);">B</span></div>
+          <div class="meta" style="margin-top:var(--sp-3);color:var(--fg-body);">Light and Silence</div>
+        </div>
+      
+        <div data-dir="C" style="padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);">
+          <div style="font-size:40px;line-height:1;"><span class="mark-sq"></span><span style="font-family:var(--display);text-transform:uppercase;letter-spacing:var(--display-tracking);">C</span></div>
+          <div class="meta" style="margin-top:var(--sp-3);color:var(--fg-body);">Industrial Testimony</div>
+        </div>
+      
+        <div data-dir="D" style="padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);">
+          <div style="font-size:40px;line-height:1;"><span class="mark-sq" style="transform:rotate(2deg);"></span><span style="font-family:var(--display);text-transform:uppercase;letter-spacing:var(--display-tracking);">D</span></div>
+          <div class="meta" style="margin-top:var(--sp-3);color:var(--fg-body);">Studio Notebook</div>
+        </div>
+      
+        <div data-dir="E" style="padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);">
+          <div style="font-size:40px;line-height:1;"><span class="mark-sq-xs"></span><span style="font-family:var(--display);text-transform:uppercase;letter-spacing:var(--display-tracking);">E</span></div>
+          <div class="meta" style="margin-top:var(--sp-3);color:var(--fg-body);">Signal Over Noise</div>
+        </div>
+      
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Grid.</h2><span class="label">12 col, 24 gutter, 48 margin</span></div>
+    <div style="background:var(--soft-white);padding:var(--sp-5);border:1px solid var(--stone);">
+      <div class="grid g-12" style="gap:12px;">
+        <div style="height:60px;background:var(--burnt-orange);opacity:0.9;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--stone);opacity:0.5;"></div><div style="height:60px;background:var(--burnt-orange);opacity:0.9;"></div>
+      </div>
+      <div class="meta" style="margin-top:var(--sp-3);">1440 max, 48 margin, 24 gutter, 12 columns. Mobile = 4 columns, 16 gutter, 24 margin.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Imagery baseline.</h2><span class="label">applies to every direction</span></div>
+    <div class="b-lede">Light must have an opinion. Textured skin, hair edges, fabric weave, metal patina, paper fibre. Real materials. The AI slop test: if a frame does not pass texture, it does not leave the folder.</div>
+  </section>
+</main><footer class="site">
+  <div>VCH Visual Brand Bible / 2026-10-07 night run / Clio</div>
+  <div>Password gated / Not for publication</div>
+</footer>
+</body></html>
