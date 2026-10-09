@@ -11,6 +11,7 @@
 const fs = require("fs");
 const path = require("path");
 const DIRECTIONS = require("./js/directions.js");
+const LAUNCH_PIECES = require("./js/launch.js");
 
 const OUT = __dirname;
 
@@ -29,6 +30,7 @@ const HEAD = (title, active) => `<!doctype html><html lang="en"><head>
 <nav class="site-nav">
   <a class="mark" href="/index.html">Vantage <b>Creative House</b></a>
   <ul>
+    <li><a class="item ${active==='launch'?'active':''}" href="/launch.html"><b style="color:var(--burnt-orange);">Launch · B vs C</b></a></li>
     <li><a class="item ${active==='principles'?'active':''}" href="/principles.html">Principles</a></li>
     <li><a class="item ${active==='system'?'active':''}" href="/system.html">System</a></li>
     <li><a class="item ${active==='A'?'active':''}" href="/dir-A.html">A</a></li>
@@ -42,31 +44,155 @@ const HEAD = (title, active) => `<!doctype html><html lang="en"><head>
 </nav>`;
 
 const FOOT = () => `<footer class="site">
-  <div>VCH Visual Brand Bible / 2026-10-07 night run / Clio</div>
-  <div>Password gated / Not for publication</div>
+  <div>VCH Visual Brand Bible / Updated 2026-10-09 / Clio</div>
+  <div>SSO gated / Not for publication</div>
 </footer>
 </body></html>`;
+
+// ---------- LAUNCH TILE RENDERER ----------
+function launchTileHTML(piece, dir){
+  const d = piece[dir];
+  const imgBase = "/img/directions";
+  const mark = `<div class="lt-mark"><span class="sq"></span>VCH / ${dir}</div>`;
+  const stamp = d.stamp ? `<div class="lt-stamp">${esc(d.stamp)}</div>` : "";
+  const foot = `<div class="lt-foot">${piece.id.toUpperCase()} · ${esc(piece.kind.toUpperCase())}</div>`;
+
+  if(piece.layout === "typeMax"){
+    return `<div class="launch-tile lt-typeMax" data-dir="${dir}">
+      ${mark}${stamp}
+      <div class="lt-text">${esc(piece.text)}</div>
+      ${foot}
+    </div>`;
+  }
+  if(piece.layout === "photoTop" || piece.layout === "photoSide"){
+    const bg = d.image ? `background-image:url('${imgBase}/${d.image}');` : "";
+    return `<div class="launch-tile lt-photoTop" data-dir="${dir}" style="${bg}">
+      ${mark}${stamp}
+      <div class="lt-overlay">
+        <div class="lt-text">${esc(piece.text)}</div>
+        ${foot}
+      </div>
+    </div>`;
+  }
+  if(piece.layout === "typeSplit"){
+    // Split: first sentence, then second sentence on new line in body color
+    const parts = piece.text.split(". ");
+    return `<div class="launch-tile lt-typeSplit" data-dir="${dir}">
+      ${mark}${stamp}
+      <div class="lt-text">${esc(parts[0])}.<span class="lt-line-2">${esc(parts.slice(1).join(". "))}</span></div>
+      ${foot}
+    </div>`;
+  }
+  if(piece.layout === "pillar"){
+    return `<div class="launch-tile lt-pillar" data-dir="${dir}">
+      ${mark}${stamp}
+      <div class="lt-pillar-num">0${piece.pillarIndex}</div>
+      <div class="lt-pillar-main">
+        <div class="lt-text">${esc(piece.text)}</div>
+        <div class="lt-sub">${esc(piece.sub)}</div>
+        ${foot}
+      </div>
+    </div>`;
+  }
+  // fallback
+  return `<div class="launch-tile lt-typeMax" data-dir="${dir}"><div class="lt-text">${esc(piece.text)}</div></div>`;
+}
+
+// ---------- LAUNCH PAGE ----------
+function launchPage(){
+  return HEAD("Launch · B vs C", "launch") + `
+<main>
+  <div class="meta">Night run 2026-10-09 / Standing order active</div>
+  <h1 class="page-title">Lead vs runner-up</h1>
+  <p class="page-subtitle">Eight launch pieces for the VCH feed, same statements, two directions. We picked B. You answer with a letter.</p>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Why B wins.</h2>
+      <span class="label">The three lines.</span>
+    </div>
+    <div class="grid g-3" style="gap:var(--sp-6);">
+      <div class="b-body" style="font-size:17px;">
+        <b style="color:var(--ink);">01.</b> The home base of your eye is light with an opinion, built in camera, not graded in post. B puts that at the centre of the brand instead of behind it.
+      </div>
+      <div class="b-body" style="font-size:17px;">
+        <b style="color:var(--ink);">02.</b> The peer-set research found one open lane: nobody owns AI as a brand aesthetic. We cannot own AI, but we can own light, which is the thing AI slop still cannot fake.
+      </div>
+      <div class="b-body" style="font-size:17px;">
+        <b style="color:var(--ink);">03.</b> B keeps the burnt orange honest: the practical lamp, nothing else, so the only saturated colour in VCH is always a thing you can point to in the room.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>The eight pieces, side by side.</h2>
+      <span class="label">Instagram square · 1080 × 1080 each · 8 statements × 2 directions</span>
+    </div>
+
+    <div class="launch-colhead">
+      <div></div>
+      <div><div class="h">B. Light and Silence</div><div class="meta">Lead · our pick</div></div>
+      <div><div class="h">C. Industrial Testimony</div><div class="meta">Runner-up</div></div>
+    </div>
+
+    ${LAUNCH_PIECES.map((p, i) => `
+      <div class="launch-row">
+        <div class="num">0${i+1}<br>${esc(p.kind)}</div>
+        <div data-dir="B">${launchTileHTML(p, "B")}</div>
+        <div data-dir="C">${launchTileHTML(p, "C")}</div>
+        <div class="caption">${esc(p.caption)}</div>
+      </div>
+    `).join("")}
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Decide.</h2>
+      <span class="label">Answer with a letter in #clio.</span>
+    </div>
+    <div class="b-lede">
+      <b style="color:var(--ink);">B</b> locks the lead direction, these eight go into the Approved folder and we build the next ten tomorrow. <b style="color:var(--ink);">C</b> swaps the lead; the mono-stamped proof device becomes the brand's signature. Either way we move. Hybrid is fine — say "B lead, C proof" or similar.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>What else we built tonight.</h2>
+      <span class="label">02_Work/2026-10-09/</span>
+    </div>
+    <ul class="b-body" style="padding-left:1.2em;line-height:1.65;">
+      <li><a href="/comparison.html" style="color:var(--ink);">Comparison across all five directions</a> stays available for reference.</li>
+      <li><a href="/dir-B.html" style="color:var(--ink);">Direction B deep page</a> and <a href="/dir-C.html" style="color:var(--ink);">Direction C deep page</a> for brand board, imagery rule and across-platform mockups.</li>
+      <li><code style="font-family:var(--mono);">state/plan.md</code> written tonight with this week, next week, three experiments. Will update every run.</li>
+    </ul>
+  </section>
+</main>` + FOOT();
+}
 
 // ---------- INDEX ----------
 function indexPage(){
   return HEAD("Cover") + `
 <main style="padding:0;max-width:none;">
   <section style="min-height:92vh;padding:var(--sp-9) var(--sp-8);display:grid;grid-template-rows:auto 1fr auto;">
-    <div class="meta">VCH / Night run 2026-10-07 / Prepared for Erin by Clio</div>
-    <h1 class="page-title" style="font-size:clamp(96px,14vw,232px);margin-top:var(--sp-6);">The visual<br>brand bible</h1>
+    <div class="meta">VCH / Updated 2026-10-09 / Standing order active · a decision, not a question</div>
+    <h1 class="page-title" style="font-size:clamp(96px,14vw,232px);margin-top:var(--sp-6);">We pick, you pick<br>a letter</h1>
     <div class="grid g-3" style="align-items:end;gap:var(--sp-6);">
       <div class="b-body" style="color:var(--warm-grey);max-width:40ch;">
-        Built off the design system skeleton in the <code style="font-family:var(--mono);">vch-design-system</code> repo and the words in <code style="font-family:var(--mono);">voice.md</code>, <code style="font-family:var(--mono);">fame-system.md</code> and <code style="font-family:var(--mono);">taste.md</code>. Nothing here is live. Nothing publishes.
+        Tonight: eight launch pieces for the VCH feed, same statements, two directions. We pick B. You answer with a letter. The thesis for B is on the <a href="/launch.html" style="color:var(--ink);">launch page</a>.
       </div>
       <div class="b-body" style="color:var(--warm-grey);max-width:40ch;">
-        Five directions. Each with its own palette, type pairing, imagery rule, section mark and across-platform render. Pick one, pick a hybrid of two, or ask us to go deeper on any.
+        Below: the full brand bible from the first run (five directions, across-platform mockups, principles, system). Stays available for reference and context.
       </div>
       <div class="meta" style="text-align:right;">
-        <div><b>14</b> hero stills generated</div>
-        <div><b>45</b> mockups</div>
-        <div><b>5</b> motion loops</div>
-        <div><b>5162 → 5159</b> Higgsfield credits</div>
+        <div><b>Lead</b> B · Light and Silence</div>
+        <div><b>Runner-up</b> C · Industrial Testimony</div>
+        <div><b>16</b> launch posts tonight</div>
+        <div><b>5159 → 5158</b> Higgsfield credits</div>
       </div>
+    </div>
+    <div style="margin-top:var(--sp-5);">
+      <a href="/launch.html" style="display:inline-block;background:var(--ink);color:var(--ivory);font-family:var(--display);text-transform:uppercase;letter-spacing:0.04em;font-size:20px;padding:16px 28px;text-decoration:none;">Open launch · B vs C <span style="color:var(--burnt-orange);">.</span></a>
     </div>
   </section>
   <section style="padding:var(--sp-7) var(--sp-8);border-top:1px solid var(--stone);">
@@ -537,6 +663,7 @@ function decisionsPage(){
 
 // ---------- WRITE ----------
 fs.writeFileSync(path.join(OUT, "index.html"),         indexPage());
+fs.writeFileSync(path.join(OUT, "launch.html"),        launchPage());
 fs.writeFileSync(path.join(OUT, "principles.html"),    principlesPage());
 fs.writeFileSync(path.join(OUT, "system.html"),        systemPage());
 for(const d of DIRECTIONS) fs.writeFileSync(path.join(OUT, `dir-${d.code}.html`), dirPage(d));
