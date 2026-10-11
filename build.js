@@ -24,22 +24,22 @@ const HEAD = (title, active) => `<!doctype html><html lang="en"><head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo:wght@300;400;500;600&family=Caveat:wght@500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
 </head><body>
 <nav class="site-nav">
-  <a class="mark" href="/index.html">Vantage <b>Creative House</b></a>
+  <a class="mark" href="index.html">Vantage <b>Creative House</b></a>
   <ul>
-    <li><a class="item ${active==='launch'?'active':''}" href="/launch.html"><b style="color:var(--burnt-orange);">Launch · B vs C</b></a></li>
-    <li><a class="item ${active==='principles'?'active':''}" href="/principles.html">Principles</a></li>
-    <li><a class="item ${active==='system'?'active':''}" href="/system.html">System</a></li>
-    <li><a class="item ${active==='A'?'active':''}" href="/dir-A.html">A</a></li>
-    <li><a class="item ${active==='B'?'active':''}" href="/dir-B.html">B</a></li>
-    <li><a class="item ${active==='C'?'active':''}" href="/dir-C.html">C</a></li>
-    <li><a class="item ${active==='D'?'active':''}" href="/dir-D.html">D</a></li>
-    <li><a class="item ${active==='E'?'active':''}" href="/dir-E.html">E</a></li>
-    <li><a class="item ${active==='compare'?'active':''}" href="/comparison.html">Compare</a></li>
-    <li><a class="item ${active==='decisions'?'active':''}" href="/decisions.html">Decisions</a></li>
+    <li><a class="item ${active==='launch'?'active':''}" href="launch.html"><b style="color:var(--burnt-orange);">Launch · B vs C</b></a></li>
+    <li><a class="item ${active==='principles'?'active':''}" href="principles.html">Principles</a></li>
+    <li><a class="item ${active==='system'?'active':''}" href="system.html">System</a></li>
+    <li><a class="item ${active==='A'?'active':''}" href="dir-A.html">A</a></li>
+    <li><a class="item ${active==='B'?'active':''}" href="dir-B.html">B</a></li>
+    <li><a class="item ${active==='C'?'active':''}" href="dir-C.html">C</a></li>
+    <li><a class="item ${active==='D'?'active':''}" href="dir-D.html">D</a></li>
+    <li><a class="item ${active==='E'?'active':''}" href="dir-E.html">E</a></li>
+    <li><a class="item ${active==='compare'?'active':''}" href="comparison.html">Compare</a></li>
+    <li><a class="item ${active==='decisions'?'active':''}" href="decisions.html">Decisions</a></li>
   </ul>
 </nav>`;
 
@@ -52,7 +52,7 @@ const FOOT = () => `<footer class="site">
 // ---------- LAUNCH TILE RENDERER ----------
 function launchTileHTML(piece, dir){
   const d = piece[dir];
-  const imgBase = "/img/directions";
+  const imgBase = "img/directions";
   const mark = `<div class="lt-mark"><span class="sq"></span>VCH / ${dir}</div>`;
   const stamp = d.stamp ? `<div class="lt-stamp">${esc(d.stamp)}</div>` : "";
   const foot = `<div class="lt-foot">${piece.id.toUpperCase()} · ${esc(piece.kind.toUpperCase())}</div>`;
@@ -162,8 +162,8 @@ function launchPage(){
       <span class="label">02_Work/2026-10-09/</span>
     </div>
     <ul class="b-body" style="padding-left:1.2em;line-height:1.65;">
-      <li><a href="/comparison.html" style="color:var(--ink);">Comparison across all five directions</a> stays available for reference.</li>
-      <li><a href="/dir-B.html" style="color:var(--ink);">Direction B deep page</a> and <a href="/dir-C.html" style="color:var(--ink);">Direction C deep page</a> for brand board, imagery rule and across-platform mockups.</li>
+      <li><a href="comparison.html" style="color:var(--ink);">Comparison across all five directions</a> stays available for reference.</li>
+      <li><a href="dir-B.html" style="color:var(--ink);">Direction B deep page</a> and <a href="dir-C.html" style="color:var(--ink);">Direction C deep page</a> for brand board, imagery rule and across-platform mockups.</li>
       <li><code style="font-family:var(--mono);">state/plan.md</code> written tonight with this week, next week, three experiments. Will update every run.</li>
     </ul>
   </section>
@@ -179,7 +179,7 @@ function indexPage(){
     <h1 class="page-title" style="font-size:clamp(96px,14vw,232px);margin-top:var(--sp-6);">We pick, you pick<br>a letter</h1>
     <div class="grid g-3" style="align-items:end;gap:var(--sp-6);">
       <div class="b-body" style="color:var(--warm-grey);max-width:40ch;">
-        Tonight: eight launch pieces for the VCH feed, same statements, two directions. We pick B. You answer with a letter. The thesis for B is on the <a href="/launch.html" style="color:var(--ink);">launch page</a>.
+        Tonight: eight launch pieces for the VCH feed, same statements, two directions. We pick B. You answer with a letter. The thesis for B is on the <a href="launch.html" style="color:var(--ink);">launch page</a>.
       </div>
       <div class="b-body" style="color:var(--warm-grey);max-width:40ch;">
         Below: the full brand bible from the first run (five directions, across-platform mockups, principles, system). Stays available for reference and context.
@@ -192,14 +192,14 @@ function indexPage(){
       </div>
     </div>
     <div style="margin-top:var(--sp-5);">
-      <a href="/launch.html" style="display:inline-block;background:var(--ink);color:var(--ivory);font-family:var(--display);text-transform:uppercase;letter-spacing:0.04em;font-size:20px;padding:16px 28px;text-decoration:none;">Open launch · B vs C <span style="color:var(--burnt-orange);">.</span></a>
+      <a href="launch.html" style="display:inline-block;background:var(--ink);color:var(--ivory);font-family:var(--display);text-transform:uppercase;letter-spacing:0.04em;font-size:20px;padding:16px 28px;text-decoration:none;">Open launch · B vs C <span style="color:var(--burnt-orange);">.</span></a>
     </div>
   </section>
   <section style="padding:var(--sp-7) var(--sp-8);border-top:1px solid var(--stone);">
     <div class="section-head" style="margin-bottom:var(--sp-5);"><h2 style="font-size:40px;">The five directions.</h2><span class="label">Hover a card.</span></div>
     <div class="grid g-5" style="grid-template-columns:repeat(5,1fr);gap:var(--sp-3);">
       ${DIRECTIONS.map(d=>`
-        <a href="/dir-${d.code}.html" data-dir="${d.code}" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--stone);background:var(--ground);">
+        <a href="dir-${d.code}.html" data-dir="${d.code}" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--stone);background:var(--ground);">
           <div style="padding:var(--sp-5);aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;color:var(--fg-ink);">
             <div class="meta" style="color:var(--fg-body);"><b style="color:var(--fg-ink);">${d.code}</b> &nbsp; ${esc(d.name)}</div>
             <div class="h-display" style="font-size:36px;color:var(--fg-ink);line-height:0.9;">${esc(d.principle)}</div>
@@ -481,7 +481,7 @@ function motionHTML(d){
 
 // ---------- DIR PAGE ----------
 function dirPage(d){
-  const imgBase = "/img/directions";
+  const imgBase = "img/directions";
   return HEAD(`Direction ${d.code}: ${d.name}`, d.code) + `
 <main data-dir="${d.code}" style="background:var(--ground);color:var(--fg-ink);">
   <div class="meta" style="color:var(--fg-body);">Direction ${d.code} / 05</div>
@@ -599,7 +599,7 @@ function comparisonPage(){
       ${DIRECTIONS.map(d=>`
         <div>
           <div class="meta" style="margin-bottom:var(--sp-2);"><b>${d.code}</b> &nbsp; ${esc(d.name)}</div>
-          <div style="aspect-ratio:4/5;background-image:url('/img/directions/${d.hero}');background-size:cover;background-position:center;border:1px solid var(--stone);"></div>
+          <div style="aspect-ratio:4/5;background-image:url('img/directions/${d.hero}');background-size:cover;background-position:center;border:1px solid var(--stone);"></div>
         </div>
       `).join("")}
     </div>
@@ -632,7 +632,7 @@ function decisionsPage(){
     <div class="b-lede">A, B, C, D or E. Hybrid is fine, say which two and which is the body — for example "B lead, A for the longer essays."</div>
     <div class="grid g-5" style="grid-template-columns:repeat(5,1fr);gap:var(--sp-3);margin-top:var(--sp-6);">
       ${DIRECTIONS.map(d=>`
-        <a data-dir="${d.code}" href="/dir-${d.code}.html" style="text-decoration:none;color:inherit;padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);display:block;">
+        <a data-dir="${d.code}" href="dir-${d.code}.html" style="text-decoration:none;color:inherit;padding:var(--sp-5);background:var(--ground);color:var(--fg-ink);border:1px solid var(--stone);display:block;">
           <div class="meta" style="color:var(--fg-body);"><b style="color:var(--fg-ink);">${d.code}</b> &nbsp; ${esc(d.name)}</div>
           <div class="h-display" style="font-size:24px;color:var(--fg-ink);line-height:0.95;margin-top:var(--sp-3);">${esc(d.principle)}</div>
         </a>
